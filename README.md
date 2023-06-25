@@ -16,10 +16,24 @@ const mixer = new Mixer();
 
 // Define basic DJ techniques
 const techniques = {
+const techniques = {
   beatmatch: (track, bpm) => mixer.setBPM(track, bpm),
   crossfade: (track, duration) => mixer.crossfadeTo(track, duration),
   cue: (track, position) => mixer.setCuePoint(track, position),
-  loop: (track, startPosition, endPosition) => mixer.setLoop(track, startPosition, endPosition),
+  loop: (track, startPoint, numBars) => {
+    const startPosition = startPoint < 0 ? track.numBars - Math.abs(startPoint) : startPoint;
+    mixer.setLoop(track, startPosition, numBars);
+  },
+  backspin: (track, duration) => mixer.applyBackspin(track, duration),
+  vinylBreak: (track, duration) => mixer.applyVinylBreak(track, duration),
+  filter: (track, cutoff, resonance) => mixer.applyFilter(track, cutoff, resonance),
+  eq: (track, lowGain, midGain, highGain) => mixer.applyEQ(track, lowGain, midGain, highGain),
+  sequencer: (sequence) => {
+    for (const action of sequence) {
+      const { technique, args } = action;
+      techniques[technique](...args);
+    }
+  },
 };
 
 // Perform DJ automation
