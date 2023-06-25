@@ -1,5 +1,5 @@
 # DROP
-## DROP. (DJ's Real-time Operations Protocol) is a domain-specific language (DSL) to describe and automate the mixing of multiple tracks in real-time
+## D.R.O.P. (DJ's Real-time Operations Protocol) is a domain-specific language (DSL) to describe and automate the mixing of multiple tracks in real-time
 
 DROP is an advanced domain-specific language (DSL) specifically tailored for DJs and DJ equipment producers. It offers a powerful framework for DJs to automate and execute real-time mixing of multiple tracks, encompassing both fundamental and advanced DJ techniques. With a syntax inspired by JavaScript, DROP empowers DJs to script precise and intricate control over their equipment, enabling seamless and captivating live performances.
 
